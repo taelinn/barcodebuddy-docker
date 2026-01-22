@@ -84,12 +84,11 @@ RUN \
  echo "**** Installing BarcodeBuddy ****" && \
  mkdir -p /app/bbuddy && \
  if [ -z ${BBUDDY_RELEASE+x} ]; then \
-	BBUDDY_RELEASE=$(curl -sX GET "https://api.github.com/repos/Forceu/barcodebuddy/releases/latest" \
-	| awk '/tag_name/{print $4; exit}' FS='[""]'); \
+	BBUDDY_RELEASE="master"; \
  fi && \
  curl -o \
 	/tmp/bbuddy.tar.gz -L \
-	"https://github.com/Forceu/barcodebuddy/archive/${BBUDDY_RELEASE}.tar.gz" && \
+	"https://github.com/taelinn/barcodebuddy/archive/${BBUDDY_RELEASE}.tar.gz" && \
  tar xf \
 	/tmp/bbuddy.tar.gz -C \
 	/app/bbuddy/ --strip-components=1 && \
